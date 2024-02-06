@@ -1,16 +1,34 @@
 <template>
   <h3>History</h3>
   <ul id="list" class="list">
-   <li class="minus">
-     Cash <span>-$400.00</span><button class="delete-btn">x</button>
-   </li>
 
-    <li class="plus">
-      Paycheck <span>$800</span><button class="add-btn">+</button>
+    <li v-for="transaction in transactions" :key="transaction.id">
+
+
+           {{transaction.text}} <span>${{transaction.amount}}</span><button class="delete-btn">x</button>
+
+
     </li>
 
 
   </ul>
 </template>
-<script setup>
+
+<script>
+export default{
+  data (){
+
+    return {
+      transactions: [
+        {id: 1, text: 'Groceries', amount: 1000},
+          {id: 2, text: 'Books', amount: 150},
+          {id: 3, text: 'Allowances', amount: 10000},
+          {id: 4, text: 'Gadgets', amount: 30000},
+
+      ]
+    }
+  }
+}
+
+
 </script>
